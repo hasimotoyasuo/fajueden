@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import farmTour from "../assets/images/farm-tour-students.jpg";
+import japaneseStudents from "../assets/images/japanese-students.jpg";
+import mushroomHut from "../assets/images/mushroom-hut-building.jpg";
+---
+
+<section class="py-16 md:py-24 bg-eden-sand">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl md:text-4xl text-eden-green mb-4">
+        Community & Education
+      </h2>
+      <p class="text-eden-dark/70 max-w-2xl mx-auto leading-relaxed">
+        Faju Eden is more than a farm — it's a place where knowledge grows.
+        We welcome students, volunteers, and visitors to learn about
+        organic farming and sustainable agriculture.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="group overflow-hidden rounded-xl shadow-md">
+        <Image
+          src={farmTour}
+          alt="Farm tour with local students in a cornfield"
+          width={500}
+          class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="p-4 bg-white">
+          <h3 class="font-semibold text-eden-green">Farm Tours</h3>
+          <p class="text-sm text-eden-dark/60 mt-1">
+            Hands-on learning experiences for students and visitors.
+          </p>
+        </div>
+      </div>
+
+      <div class="group overflow-hidden rounded-xl shadow-md">
+        <Image
+          src={japaneseStudents}
+          alt="International students learning about strawberry cultivation"
+          width={500}
+          class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="p-4 bg-white">
+          <h3 class="font-semibold text-eden-green">Global Exchange</h3>
+          <p class="text-sm text-eden-dark/60 mt-1">
+            Welcoming students from around the world, including Japan.
+          </p>
+        </div>
+      </div>
+
+      <div class="group overflow-hidden rounded-xl shadow-md">
+        <Image
+          src={mushroomHut}
+          alt="Community members building a mushroom hut together"
+          width={500}
+          class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="p-4 bg-white">
+          <h3 class="font-semibold text-eden-green">Building Together</h3>
+          <p class="text-sm text-eden-dark/60 mt-1">
+            Community-driven projects like our mushroom cultivation hut.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

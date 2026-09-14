@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import applePlanting from "../assets/images/apple-planting.jpg";
+import compostTeaching from "../assets/images/compost-teaching.jpg";
+---
+
+<section class="py-16 md:py-24 bg-eden-sand">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div>
+        <h2 class="font-display text-3xl md:text-4xl text-eden-green mb-6">
+          Our Philosophy
+        </h2>
+        <div class="space-y-4 text-eden-dark/80 leading-relaxed">
+          <p>
+            At Faju Eden, everything starts with the soil. We believe that
+            healthy soil produces healthy crops — and healthy crops nourish
+            healthy communities.
+          </p>
+          <p>
+            Through vermicomposting and organic practices, we build living
+            soil that sustains our diverse farm. No chemical fertilizers, no
+            shortcuts — just patience, care, and a deep respect for the land.
+          </p>
+          <p>
+            Our farm is more than a place to grow food. It's a classroom, a
+            community hub, and a living example of what sustainable
+            agriculture can look like in Kakamega.
+          </p>
+        </div>
+      </div>
+
+      <!-- Photos -->
+      <div class="grid grid-cols-2 gap-4">
+        <Image
+          src={applePlanting}
+          alt="Planting seedlings in prepared soil"
+          width={400}
+          class="rounded-xl shadow-md object-cover aspect-[3/4]"
+        />
+        <Image
+          src={compostTeaching}
+          alt="Teaching vermicomposting techniques"
+          width={400}
+          class="rounded-xl shadow-md object-cover aspect-[3/4] mt-8"
+        />
+      </div>
+    </div>
+  </div>
+</section>

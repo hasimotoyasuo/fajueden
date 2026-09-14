@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.jpg";
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/event", label: "Events" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-eden-green/95 backdrop-blur-sm">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-3">
+      <Image
+        src={logo}
+        alt="FAJU EDEN"
+        width={40}
+        height={40}
+        class="rounded-full"
+      />
+      <span class="font-display text-xl text-eden-cream font-semibold">
+        FAJU EDEN
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition-colors hover:text-eden-terra",
+              currentPath === link.href
+                ? "text-eden-terra"
+                : "text-eden-cream/80",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-eden-cream p-2"
+      aria-label="Toggle menu"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-eden-green border-t border-eden-forest">
+    <ul class="px-4 py-4 space-y-3">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "block text-sm font-medium py-2 transition-colors",
+              currentPath === link.href
+                ? "text-eden-terra"
+                : "text-eden-cream/80 hover:text-eden-terra",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

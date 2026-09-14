@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.jpg";
+import heroImage from "../assets/images/hero-kitchen-garden.jpg";
+---
+
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <Image
+    src={heroImage}
+    alt="Faju Eden kitchen garden"
+    widths={[640, 1024, 1536]}
+    sizes="100vw"
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="eager"
+  />
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-eden-green/60"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 mx-auto max-w-4xl px-4 text-center">
+    <Image
+      src={logo}
+      alt="FAJU EDEN Logo"
+      width={120}
+      height={120}
+      class="mx-auto mb-8 rounded-full border-2 border-eden-cream/30 shadow-2xl"
+      loading="eager"
+    />
+
+    <h1 class="font-display text-4xl md:text-5xl lg:text-7xl text-eden-cream mb-4 leading-tight">
+      Healthy Soil,<br />Healthy Products
+    </h1>
+
+    <p class="text-lg md:text-xl text-eden-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+      From the heart of Kakamega, Kenya — organic farming rooted in
+      sustainable soil, community, and care.
+    </p>
+
+    <a
+      href="#products"
+      class="inline-flex items-center gap-2 bg-eden-terra text-eden-cream px-8 py-3 rounded-full font-medium text-lg hover:bg-eden-terra/90 transition-all hover:scale-105"
+    >
+      Explore Our Farm
+      <span class="text-xl">↓</span>
+    </a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="h-6 w-6 text-eden-cream/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

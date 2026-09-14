@@ -1,0 +1,50 @@
+---
+const faqs = [
+  {
+    question: "Where are events held?",
+    answer:
+      "Most of our events take place at our farm in Kakamega or at Naivas Parking, Kakamega Town. Check each event listing for specific location details.",
+  },
+  {
+    question: "Is there an entry fee?",
+    answer:
+      "Most events are free to attend. Some workshops may have a small fee — details will be shared in each event announcement.",
+  },
+  {
+    question: "What kind of events do you host?",
+    answer:
+      "We host farmers markets, farm tours, agricultural workshops, and community building activities. We're always exploring new ways to bring people together around sustainable farming.",
+  },
+  {
+    question: "I'm interested in participating. How can I get involved?",
+    answer:
+      "We'd love to have you! Whether you want to be a vendor at our market, join a workshop, or volunteer — please reach out to us via WhatsApp and we'll share all the details.",
+  },
+  {
+    question: "How do I stay updated on upcoming events?",
+    answer:
+      "Follow us on Instagram @fajueden.037 for the latest announcements, or send us a message on WhatsApp to be added to our updates list.",
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-eden-sand">
+  <div class="mx-auto max-w-3xl px-4">
+    <h2 class="font-display text-3xl md:text-4xl text-eden-green text-center mb-12">
+      Frequently Asked Questions
+    </h2>
+    <div class="space-y-3">
+      {faqs.map((faq, index) => (
+        <details class="group bg-white rounded-xl shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 text-eden-green font-medium hover:bg-eden-cream/50 rounded-xl transition-colors">
+            <span>{faq.question}</span>
+            <span class="ml-4 text-eden-terra transition-transform group-open:rotate-45 text-xl">+</span>
+          </summary>
+          <div class="px-6 pb-4 text-eden-dark/70 leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
