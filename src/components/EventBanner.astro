@@ -1,20 +1,29 @@
 ---
+import { marketEvents } from "../data/markets";
+
+const upcomingEvent = marketEvents.find((e) => e.isUpcoming);
 ---
 
 <section class="py-16 md:py-20 bg-eden-green">
   <div class="mx-auto max-w-4xl px-4 text-center">
+    {upcomingEvent && (
+      <div class="inline-flex items-center gap-2 bg-eden-forest text-eden-cream text-xs md:text-sm font-medium px-4 py-1.5 rounded-full mb-4 border border-eden-cream/20">
+        <span class="w-2 h-2 rounded-full bg-eden-terra animate-pulse"></span>
+        <span>Next: {upcomingEvent.title} ({upcomingEvent.dates})</span>
+      </div>
+    )}
     <h2 class="font-display text-3xl md:text-4xl text-eden-cream mb-4">
-      Upcoming Events
+      Upcoming & Past Events
     </h2>
     <p class="text-eden-cream/80 max-w-xl mx-auto mb-8 leading-relaxed">
-      From farmers markets to farm tours and workshops —
+      From the Kakamega Farmers Market to on-farm mushroom training workshops —
       come experience sustainable agriculture with us.
     </p>
     <a
       href="/event"
       class="inline-flex items-center gap-2 bg-eden-terra text-eden-cream px-8 py-3 rounded-full font-medium text-lg hover:bg-eden-terra/90 transition-all hover:scale-105"
     >
-      View Events
+      View Events & Gallery
       <span>→</span>
     </a>
   </div>

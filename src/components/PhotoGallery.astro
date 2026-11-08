@@ -1,28 +1,229 @@
 ---
+import { Image } from "astro:assets";
+import { marketEvents } from "../data/markets";
+
+// Mushroom Training photos (Nov 5, 2026)
+import trainingLecture from "../assets/images/events/training-lecture.jpg";
+import trainingDemo from "../assets/images/events/training-demo.jpg";
+import trainingCircle from "../assets/images/events/training-circle.jpg";
+import trainingDiscussion from "../assets/images/events/training-discussion.jpg";
+import trainingNotes from "../assets/images/events/training-notes.jpg";
+import trainingCommunity from "../assets/images/events/training-community.jpg";
+
+// 1st Kakamega Farmers Market photos (Oct 16–17, 2026)
+import marketGroup from "../assets/images/events/market1-group.jpg";
+import marketTents from "../assets/images/events/market1-tents.jpg";
+import marketFajuBooth from "../assets/images/events/market1-faju-booth.jpg";
+import marketVegetables from "../assets/images/events/market1-vegetables.jpg";
+import marketTasting from "../assets/images/events/market1-tasting.jpg";
+import marketCustomer from "../assets/images/events/market1-customer.jpg";
+
+const trainingEvent = marketEvents.find((e) => e.id === "training-mushroom-001");
+const market1Event = marketEvents.find((e) => e.id === "market-001");
+
+const trainingPhotos = [
+  {
+    src: trainingLecture,
+    alt: "Guest trainer from RICO FARM lecturing on mushroom production",
+    caption: "Guest trainer from RICO FARM teaching mushroom production",
+  },
+  {
+    src: trainingDemo,
+    alt: "Hands-on demonstration with mushroom substrate bag outside the mushroom hut",
+    caption: "Practical demonstration with colonized mushroom substrate bags",
+  },
+  {
+    src: trainingCircle,
+    alt: "Local farmers gathered in a circle under the trees at Faju Eden",
+    caption: "Outdoor training session hosted at Faju Eden Farm",
+  },
+  {
+    src: trainingDiscussion,
+    alt: "Farmer asking questions during the mushroom cultivation Q&A",
+    caption: "Active Q&A and discussion among local farmers",
+  },
+  {
+    src: trainingNotes,
+    alt: "Participants taking detailed notes during the training workshop",
+    caption: "Farmers taking notes on cultivation and hut management",
+  },
+  {
+    src: trainingCommunity,
+    alt: "Community fellowship and refreshments after the mushroom training",
+    caption: "Community networking and fellowship after the workshop",
+  },
+];
+
+const market1Photos = [
+  {
+    src: marketGroup,
+    alt: "Farmers and team at the 1st Kakamega Farmers Market booth",
+    caption: "Participating farmers & team at the 1st Kakamega Farmers Market",
+  },
+  {
+    src: marketTents,
+    alt: "FAJU EDEN and RICO FARM tents at Naivas Parking, Kakamega Town",
+    caption: "FAJU EDEN & RICO FARM booths at Naivas Parking, Kakamega Town",
+  },
+  {
+    src: marketFajuBooth,
+    alt: "Customers visiting the FAJU EDEN booth with strawberry jam and moringa",
+    caption: "Visitors exploring Faju Eden strawberry jam, moringa & mukuna",
+  },
+  {
+    src: marketVegetables,
+    alt: "Introducing fresh organic leafy vegetables to market customers",
+    caption: "Sharing fresh organic leafy greens directly with customers",
+  },
+  {
+    src: marketTasting,
+    alt: "Free mushroom soup tasting and product showcase at the market",
+    caption: "Free mushroom soup tasting & direct farmer-to-consumer dialogue",
+  },
+  {
+    src: marketCustomer,
+    alt: "Visitor smiling while tasting local farm products at the market",
+    caption: "Free tastings of pure local honey and farm-fresh products",
+  },
+];
 ---
 
 <section class="py-16 md:py-24 bg-eden-cream">
-  <div class="mx-auto max-w-5xl px-4">
-    <h2 class="font-display text-3xl md:text-4xl text-eden-green text-center mb-4">
-      Gallery
-    </h2>
-    <p class="text-center text-eden-dark/60 mb-12 max-w-xl mx-auto">
-      Photos from our events will be updated here.
-      Stay tuned!
-    </p>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div class="aspect-square bg-eden-sand rounded-xl flex items-center justify-center">
-          <div class="text-center text-eden-dark/30">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 mx-auto mb-2">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <path d="M21 15l-5-5L5 21" />
-            </svg>
-            <span class="text-sm">Coming Soon</span>
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl md:text-4xl text-eden-green mb-4">
+        Past Events & Gallery
+      </h2>
+      <p class="text-eden-dark/70 max-w-2xl mx-auto leading-relaxed">
+        Highlights and photos from our recent farmers markets, on-farm workshops,
+        and community training sessions in Kakamega.
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      <!-- Event 1: Nov 5 Mushroom Training -->
+      {trainingEvent && (
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-eden-sand">
+          <div class="bg-eden-forest px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+              <span class="inline-block bg-eden-cream text-eden-green text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+                Workshop & Training
+              </span>
+              <span class="text-eden-cream/90 text-sm font-medium">
+                {trainingEvent.dates}
+              </span>
+            </div>
+            <span class="text-eden-cream/80 text-sm">
+              {trainingEvent.admission}
+            </span>
+          </div>
+
+          <div class="p-6 md:p-8">
+            <div class="mb-8">
+              <h3 class="font-display text-2xl md:text-3xl text-eden-green mb-3">
+                {trainingEvent.title}
+              </h3>
+              <p class="text-sm text-eden-forest font-medium mb-3 flex items-center gap-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0">
+                  <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                {trainingEvent.location}
+              </p>
+              <p class="text-eden-dark/75 leading-relaxed mb-4">
+                {trainingEvent.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {trainingEvent.highlights.map((item) => (
+                  <span class="bg-eden-sand text-eden-dark text-xs md:text-sm px-3 py-1 rounded-full">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {trainingPhotos.map((photo) => (
+                <figure class="group overflow-hidden rounded-xl bg-eden-sand shadow-sm">
+                  <div class="overflow-hidden aspect-[4/3]">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={600}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <figcaption class="p-3 text-xs md:text-sm text-eden-dark/75 bg-eden-sand/60">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
-      ))}
+      )}
+
+      <!-- Event 2: Oct 16-17 1st Farmers Market -->
+      {market1Event && (
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-eden-sand">
+          <div class="bg-eden-green px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+              <span class="inline-block bg-eden-terra text-eden-cream text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+                Farmers Market
+              </span>
+              <span class="text-eden-cream/90 text-sm font-medium">
+                {market1Event.dates}
+              </span>
+            </div>
+            <span class="text-eden-cream/80 text-sm">
+              {market1Event.location}
+            </span>
+          </div>
+
+          <div class="p-6 md:p-8">
+            <div class="mb-8">
+              <h3 class="font-display text-2xl md:text-3xl text-eden-green mb-3">
+                {market1Event.title}
+              </h3>
+              <p class="text-sm text-eden-forest font-medium mb-3 flex items-center gap-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0">
+                  <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                {market1Event.location}
+              </p>
+              <p class="text-eden-dark/75 leading-relaxed mb-4">
+                {market1Event.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {market1Event.highlights.map((item) => (
+                  <span class="bg-eden-sand text-eden-dark text-xs md:text-sm px-3 py-1 rounded-full">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {market1Photos.map((photo) => (
+                <figure class="group overflow-hidden rounded-xl bg-eden-sand shadow-sm">
+                  <div class="overflow-hidden aspect-[4/3]">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={600}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <figcaption class="p-3 text-xs md:text-sm text-eden-dark/75 bg-eden-sand/60">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
