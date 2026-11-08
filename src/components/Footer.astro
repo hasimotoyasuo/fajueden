@@ -61,8 +61,11 @@ import { siteConfig } from "../config/site";
       <!-- Contact -->
       <div>
         <h4 class="font-semibold mb-4 text-eden-cream/90">Get in Touch</h4>
-        <p class="text-eden-cream/70 text-sm mb-4">
-          Have questions or want to order? Reach out on WhatsApp.
+        <p class="text-eden-cream/70 text-sm mb-2">
+          Have questions or want to order? Reach out on WhatsApp:
+        </p>
+        <p class="text-eden-cream font-semibold text-base mb-4">
+          {siteConfig.whatsapp.displayNumber}
         </p>
         <WhatsAppButton
           message={siteConfig.whatsapp.defaultMessage}

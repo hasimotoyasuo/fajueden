@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EventHero from "../components/EventHero.astro";
 import EventCard from "../components/EventCard.astro";
 import PhotoGallery from "../components/PhotoGallery.astro";
+import SocialFeed from "../components/SocialFeed.astro";
 import EventFAQ from "../components/EventFAQ.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import { marketEvents } from "../data/markets";
@@ -20,21 +21,25 @@ const upcomingEvent = marketEvents.find((e) => e.isUpcoming) ?? marketEvents[0];
   {upcomingEvent && <EventCard event={upcomingEvent} />}
 
   <PhotoGallery />
+  <SocialFeed />
   <EventFAQ />
 
   <!-- WhatsApp CTA -->
   <section class="py-16 md:py-24 bg-eden-green">
     <div class="mx-auto max-w-2xl px-4 text-center">
       <h2 class="font-display text-3xl md:text-4xl text-eden-cream mb-4">
-        Have Questions?
+        Have Questions or Want to Join?
       </h2>
-      <p class="text-eden-cream/80 mb-8">
+      <p class="text-eden-cream/80 mb-3">
         Reach out to us on WhatsApp for more information about
-        upcoming events, participation, or anything else.
+        upcoming events, participation, or direct farm orders.
+      </p>
+      <p class="text-eden-terra font-semibold text-lg mb-8">
+        WhatsApp: {siteConfig.whatsapp.displayNumber}
       </p>
       <WhatsAppButton
         message={siteConfig.whatsapp.marketMessage}
-        label="Chat with Us on WhatsApp"
+        label={`Chat with Us on WhatsApp (${siteConfig.whatsapp.displayNumber})`}
         variant="light"
       />
     </div>

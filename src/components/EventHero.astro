@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/images/logo.jpg";
+import WhatsAppButton from "./WhatsAppButton.astro";
+import { siteConfig } from "../config/site";
 ---
 
 <section class="relative bg-eden-green py-24 md:py-32">
@@ -16,9 +18,14 @@ import logo from "../assets/images/logo.jpg";
     <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-eden-cream mb-4">
       Events
     </h1>
-    <p class="text-lg md:text-xl text-eden-cream/80 max-w-2xl mx-auto">
+    <p class="text-lg md:text-xl text-eden-cream/80 max-w-2xl mx-auto mb-8">
       Farm tours, farmers markets, workshops, and more —
       join us in the field and experience organic farming firsthand.
     </p>
+    <WhatsAppButton
+      message={siteConfig.whatsapp.marketMessage}
+      label={`Ask on WhatsApp (${siteConfig.whatsapp.displayNumber})`}
+      variant="light"
+    />
   </div>
 </section>
